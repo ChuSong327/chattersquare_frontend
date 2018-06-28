@@ -7,9 +7,8 @@ export const updateUsers = (users) => {
     return {
         type: UserApiUtil.GET_USERS,
         users
-    }
-}
-
+    };
+};
 
 /**
  * for UI
