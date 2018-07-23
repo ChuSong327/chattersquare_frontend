@@ -1,14 +1,15 @@
 import { connect } from "react-redux";
-import Navbar from "./Navbar";
+import * as userAction from "../../actions/userAction";
+import SignUpForm from "./SignUpForm";
 
 export const mapStateToProps = state => {
     /**
      * state is redux global store
      */
     return {
-        // user: state.currentUserReducer.user
+        user: state.currentUserReducer.user
     };
-};
+}
 
 export const mapDispatchToProps = dispatch => {
     /**
@@ -16,10 +17,10 @@ export const mapDispatchToProps = dispatch => {
      * bind with reducer
      */
     return {
-        // getCurrentUser: (params) => {
-        //     return dispatch(userAction.getCurrentUser(params));
-        // }
+        signUp: (params) => {
+            return dispatch(userAction.signUp(params));
+        }
     };
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(Navbar);
+export default connect(mapStateToProps, mapDispatchToProps)(SignUpForm);
