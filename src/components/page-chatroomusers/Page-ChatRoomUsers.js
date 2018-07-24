@@ -18,7 +18,6 @@ class PageChatRoomUsers extends Component {
                 </div>
             )
         } else if(this.props.currentUser && this.props.currentRoom ) {
-            console.log("this is the chat users props: ", this.props)
             return(
                 <div>
                     <SideBarContainer state={ this.props }/>
