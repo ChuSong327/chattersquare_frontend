@@ -1,4 +1,5 @@
 import axios from "axios";
+import {prod, dev} from "./port";
 
 export const SIGN_IN = "SIGN_IN";
 export const SIGN_UP = "SIGN_UP";
@@ -11,8 +12,10 @@ export const GET_ROOMS = "GET_ROOMS";
 export const JOIN_ROOM = "JOIN_ROOM";
 export const REMOVE_ROOM = "REMOVE_ROOM";
 
+const PORT = process.env.NODE_ENV === 'production' ? prod: dev;
+
 export const signIn = (params) => {
-    const url = "http://localhost:3000/api/users/signin";
+    const url = `${PORT}/api/users/signin`;
     return axios.post(url, params, {
         headers: {
             "Access-Control-Allow-Origin": "*"
@@ -27,7 +30,7 @@ export const signIn = (params) => {
 };
 
 export const signUp = (params) => {
-    const url = "http://localhost:3000/api/users/signup";
+    const url = `${PORT}/api/users/signup`;
     return axios.post(url, params,  {
             headers: {
                 "Access-Control-Allow-Origin": "*"
@@ -42,7 +45,7 @@ export const signUp = (params) => {
 };
 
 export const retrieveUser = (params) => {
-    const url = `http://localhost:3000/api/users/retrieveuser/${params}`;
+    const url = `${PORT}/api/users/retrieveuser/${params}`;
     return axios.get(url).then(res => {
         return res.data;
     })
@@ -52,7 +55,7 @@ export const retrieveUser = (params) => {
 };
 
 export const updateUserInfo = params => {
-    const url = "http://localhost:3000/api/users/updateuserinfo";
+    const url = `${PORT}/api/users/updateuserinfo`;
     return axios.post(url, params, {
         headers: {
             "Access-Control-Allow-Origin": "*"
@@ -67,7 +70,7 @@ export const updateUserInfo = params => {
 };
 
 export const getFriends = params => {
-    const url = `http://localhost:3000/api/users/getfriends/${params}`;
+    const url = `${PORT}/api/users/getfriends/${params}`;
     return axios.get(url).then(res => {
         return res.data;
     })
@@ -77,7 +80,7 @@ export const getFriends = params => {
 };
 
 export const deleteFriends = params => {
-    const url="http://localhost:3000/api/users/deletefriends";
+    const url = `${PORT}/api/users/deletefriends`;
     return axios.post(url, params, {
         headers: {
             "Access-Control-Allow-Origin": "*"
@@ -91,7 +94,7 @@ export const deleteFriends = params => {
 };
 
 export const addFriends = params => {
-    const url="http://localhost:3000/api/users/addfriends";
+    const url = `${PORT}/api/users/addfriends`;
     return axios.post(url, params, {
         headers: {
             "Access-Control-Allow-Origin": "*"
@@ -104,7 +107,7 @@ export const addFriends = params => {
 };
 
 export const getRooms = params => {
-    const url = `http://localhost:3000/api/users/getrooms/${params}`;
+    const url = `${PORT}/api/users/getrooms/${params}`;
     return axios.get(url).then((res) => {
         return res.data;
         })
@@ -114,7 +117,7 @@ export const getRooms = params => {
 };
 
 export const joinRoom = params => {
-    const url = "http://localhost:3000/api/users/joinroom";
+    const url = `${PORT}/api/users/joinroom`;
     return axios.post(url, params, {
         headers: {
             "Access-Control-Allow-Origin": "*"
@@ -127,7 +130,7 @@ export const joinRoom = params => {
 };
 
 export const removeRoom = params => {
-    const url = "http://localhost:3000/api/users/removeroom";
+    const url = `${PORT}/api/users/removeroom`;
     return axios.post(url, params, {
         headers: {
             "Access-Control-Allow-Origin": "*"
