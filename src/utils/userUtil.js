@@ -18,7 +18,8 @@ export const signIn = (params) => {
     const url = `${PORT}/api/users/signin`;
     return axios.post(url, params, {
         headers: {
-            "Access-Control-Allow-Origin": "*"
+            "Access-Control-Allow-Origin": "https://chattersquarebackend.herokuapp.com/",
+            "Access-Control-Allow-Methods": "POST, GET, PUT, DELETE "
         }
     })
     .then(res => {
@@ -33,7 +34,8 @@ export const signUp = (params) => {
     const url = `${PORT}/api/users/signup`;
     return axios.post(url, params,  {
             headers: {
-                "Access-Control-Allow-Origin": "*"
+                "Access-Control-Allow-Origin": "https://chattersquarebackend.herokuapp.com/",
+                "Access-Control-Allow-Methods": "POST, GET, PUT, DELETE "
             }
         })
         .then((res) => {
@@ -46,7 +48,12 @@ export const signUp = (params) => {
 
 export const retrieveUser = (params) => {
     const url = `${PORT}/api/users/retrieveuser/${params}`;
-    return axios.get(url).then(res => {
+    return axios.get(url, {
+        headers: {
+            "Access-Control-Allow-Origin": "https://chattersquarebackend.herokuapp.com/",
+            "Access-Control-Allow-Methods": "POST, GET, PUT, DELETE "
+        }
+    }).then(res => {
         return res.data;
     })
     .catch(error => {
@@ -71,7 +78,12 @@ export const updateUserInfo = params => {
 
 export const getFriends = params => {
     const url = `${PORT}/api/users/getfriends/${params}`;
-    return axios.get(url).then(res => {
+    return axios.get(url, {
+        headers: {
+            "Access-Control-Allow-Origin": "https://chattersquarebackend.herokuapp.com/",
+            "Access-Control-Allow-Methods": "POST, GET, PUT, DELETE "
+        }
+    }).then(res => {
         return res.data;
     })
     .catch(error => {
@@ -83,7 +95,8 @@ export const deleteFriends = params => {
     const url = `${PORT}/api/users/deletefriends`;
     return axios.post(url, params, {
         headers: {
-            "Access-Control-Allow-Origin": "*"
+            "Access-Control-Allow-Origin": "https://chattersquarebackend.herokuapp.com/",
+            "Access-Control-Allow-Methods": "POST, GET, PUT, DELETE "
         }
     }).then(res => {
         return res.data;
@@ -97,7 +110,8 @@ export const addFriends = params => {
     const url = `${PORT}/api/users/addfriends`;
     return axios.post(url, params, {
         headers: {
-            "Access-Control-Allow-Origin": "*"
+            "Access-Control-Allow-Origin": "https://chattersquarebackend.herokuapp.com/",
+            "Access-Control-Allow-Methods": "POST, GET, PUT, DELETE "
         }
     }).then(res => {
         return res.data
@@ -108,7 +122,12 @@ export const addFriends = params => {
 
 export const getRooms = params => {
     const url = `${PORT}/api/users/getrooms/${params}`;
-    return axios.get(url).then((res) => {
+    return axios.get(url, {
+        headers: {
+            "Access-Control-Allow-Origin": "https://chattersquarebackend.herokuapp.com/",
+            "Access-Control-Allow-Methods": "POST, GET, PUT, DELETE "
+        }
+    }).then((res) => {
         return res.data;
         })
         .catch(error => {
@@ -120,7 +139,8 @@ export const joinRoom = params => {
     const url = `${PORT}/api/users/joinroom`;
     return axios.post(url, params, {
         headers: {
-            "Access-Control-Allow-Origin": "*"
+            "Access-Control-Allow-Origin": "https://chattersquarebackend.herokuapp.com/",
+            "Access-Control-Allow-Methods": "POST, GET, PUT, DELETE "
         }
     }).then(res => {
         return res.data;
@@ -133,7 +153,8 @@ export const removeRoom = params => {
     const url = `${PORT}/api/users/removeroom`;
     return axios.post(url, params, {
         headers: {
-            "Access-Control-Allow-Origin": "*"
+            "Access-Control-Allow-Origin": "https://chattersquarebackend.herokuapp.com/",
+            "Access-Control-Allow-Methods": "POST, GET, PUT, DELETE "
         }
     }).then(res => {
         return res.data;
@@ -151,7 +172,9 @@ export const uploadProfile = params => {
         url: url,
         method: "POST",
         headers: {
-            "Content-Type": "application/x-www-form-urlencoded"
+            "Content-Type": "application/x-www-form-urlencoded",
+            "Access-Control-Allow-Origin": "https://chattersquarebackend.herokuapp.com/",
+            "Access-Control-Allow-Methods": "POST, GET, PUT, DELETE "
         },
         data: formData
     }).then(res => {
