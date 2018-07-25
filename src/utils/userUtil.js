@@ -17,11 +17,11 @@ const PORT = process.env.NODE_ENV === 'production' ? prod: dev;
 export const signIn = (params) => {
     const url = `${PORT}/api/users/signin`;
     return axios.post(url, params, {
-        headers: {
-            "Access-Control-Allow-Origin": "http://chattersquare.herokuapp.com/",
-            "Access-Control-Allow-Methods": "POST, GET, PUT, DELETE, OPTIONS",
-            "Access-Control-Allow-Headers": "X-Requested-With, Content-Type"
-        }
+        // headers: {
+        //     "Access-Control-Allow-Origin": "http://chattersquare.herokuapp.com/",
+        //     "Access-Control-Allow-Methods": "POST, GET, PUT, DELETE, OPTIONS",
+        //     "Access-Control-Allow-Headers": "X-Requested-With, Content-Type"
+        // }
     })
     .then(res => {
         return res.data;
@@ -181,6 +181,6 @@ export const uploadProfile = params => {
     }).then(res => {
         return res.data
     }).catch(error => {
-        console.log(error);
+        console.log("This is an error: ", error);
     })
 };

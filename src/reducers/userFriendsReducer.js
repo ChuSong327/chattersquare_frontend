@@ -17,7 +17,6 @@ const userFriendsReducer = (
             return newUserFriendsState;
         case UserApiUtil.DELETE_FRIENDS: 
             friends = action.friends;
-            console.log("this is the userfriends reducer friends: ", friends)
             newUserFriendsState = Object.assign({}, state, { friends: friends });
             return newUserFriendsState;
         case UserApiUtil.ADD_FRIENDS: 
