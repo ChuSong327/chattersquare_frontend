@@ -34,21 +34,21 @@ const styles = theme => ({
         marginLeft:theme.spacing.unit * 3,
     },
     title: {
-        marginTop: "41px",
-        marginLeft: "1px",
-        fontSize: "1.9rem",
+        marginTop: "54px",
+        marginLeft: "2px",
+        fontSize: "1.8rem",
         fontFamily: "Tangerine, cursive",
         letterSpacing: "1.2px",
         color:"rgb(255,255,255)"
     },
     circle: {
-        height: "115px",
-        width: "115px",
+        height: "135px",
+        width: "135px",
         borderRadius: "50%",
         backgroundColor: "rgba(73, 160, 157, 0.9)",
         display:"inline-block",
         position: "absolute",
-        marginTop: "-60px",
+        marginTop: "-70px",
         marginLeft: "200px"
     },
     formControl: {
@@ -150,7 +150,7 @@ class SignUpForm extends Component {
                 <div className={ classes.left }>
                     <div className={ classes.circle }>
                         <div className={ classes.title }>
-                            ChatterBox
+                            ChatterSqaure
                         </div>
                     </div>
                     <Card className={ classes.gridOne }>
