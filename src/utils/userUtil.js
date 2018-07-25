@@ -18,8 +18,8 @@ export const signIn = (params) => {
     const url = `${PORT}/api/users/signin`;
     return axios.post(url, params, {
         headers: {
-            "Access-Control-Allow-Origin": "https://chattersquarebackend.herokuapp.com/",
-            "Access-Control-Allow-Methods": "POST, GET, PUT, DELETE "
+            "Access-Control-Allow-Origin": "https://chattersquarebackend.herokuapp.com/api/users/signin",
+            "Access-Control-Allow-Methods": "POST, GET, PUT, DELETE, OPTIONS "
         }
     })
     .then(res => {
