@@ -51,6 +51,7 @@ class SignInForm extends Component {
         };
         this.handleInputChange = this.handleInputChange.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
+        this.handleDemoClick = this.handleDemoClick.bind(this);
     };
 
     handleInputChange(event) {
@@ -59,7 +60,7 @@ class SignInForm extends Component {
         this.setState({
             [ name ]: event.target.value
         });
-    };
+    }
 
     handleSubmit(){
         const params = this.state;
@@ -67,7 +68,14 @@ class SignInForm extends Component {
             const id = res[0].id;
             this.context.router.history.push(`/users/${id}/dashboard/chatrooms`);
         });
-    };
+    }
+
+    handleDemoClick(){
+        this.setState({
+            usernameEmail:"user23",
+            password: "123456",
+        });
+    }
     
     render(){
         const { classes } = this.props;
@@ -100,6 +108,12 @@ class SignInForm extends Component {
                 onClick={ this.handleSubmit }
                 >
                 Sign in
+            </Button>
+            <Button
+                variant="contained"
+                className={ classes.button }
+                onClick={ this.handleDemoClick }>
+                Demo
             </Button>
         </div>
         )
