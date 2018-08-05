@@ -16,6 +16,7 @@ const PORT = process.env.NODE_ENV === 'production' ? prod: dev;
 
 export const signIn = (params) => {
     const url = `${PORT}/api/users/signin`;
+    console.log("Sending request!!!!")
     return axios.post(url, params)
     .then(res => {
         return res.data;

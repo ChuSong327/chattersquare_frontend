@@ -65,6 +65,7 @@ class SignInForm extends Component {
         event.preventDefault();
         const params = this.state;
         this.props.signIn(params).then(res => {
+            console.log("GET HERE!!!!!!")
             const id = res[0].id;
             this.context.router.history.push(`/users/${id}/dashboard/chatrooms`);
         });
