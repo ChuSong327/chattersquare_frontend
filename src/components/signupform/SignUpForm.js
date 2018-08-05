@@ -136,6 +136,7 @@ class SignUpForm extends Component {
     };
 
     handleSignUpSubmit(event) {
+        event.preventDefault();
         const params = this.state;
         this.props.signUp(params).then(res => {
             const id = res[0].id;
@@ -154,87 +155,97 @@ class SignUpForm extends Component {
                         </div>
                     </div>
                     <Card className={ classes.gridOne }>
-                        <FormControl 
-                            className={ classes.formControl }>
-                            <InputLabel 
-                                name="username" 
-                                type="text"
-                                className={ classes.inputLabel }>
-                                Username
-                            </InputLabel>
-                            <Input 
-                                id="username" 
-                                className={ classes.input }
-                                value={ this.state.username }
-                                onChange={ this.handleInputChange }
-                            />
-                        </FormControl><br/>
-                        <FormControl className={ classes.formControl }>
-                            <InputLabel 
-                                name="password" 
-                                className={ classes.inputLabel }>
-                                Password
-                            </InputLabel>
-                            <Input 
-                                id="password" 
-                                type="password"
-                                className={ classes.input }
-                                value={ this.state.password }
-                                onChange={ this.handleInputChange }
-                            />
-                        </FormControl><br/>
-                        <FormControl className={ classes.formControl }>
-                            <InputLabel 
-                                name="firstname" 
-                                type="text"
-                                className={ classes.inputLabel }>
-                                First Name
-                            </InputLabel>
-                            <Input 
-                                id="firstname" 
-                                className={ classes.nameInput }
-                                value={ this.state.firstname }
-                                onChange={ this.handleInputChange }
-                            />
-                        </FormControl>
-                        <FormControl>
-                            <InputLabel 
-                                name="lastname" 
-                                className={ classes.inputLabel }
-                                style={{ paddingLeft: theme.spacing.unit * 4 }}>
-                                Last Name
-                            </InputLabel>
-                            <Input 
-                                id="lastname" 
-                                type="text"
-                                className={ classes.nameInput }
-                                style={{ marginLeft: theme.spacing.unit * 3 }}
-                                value={ this.state.lastname }
-                                onChange={ this.handleInputChange }
-                            />
-                        </FormControl><br/>
-                        <FormControl className={ classes.formControl }>
-                            <InputLabel 
-                                name="email" 
-                                className={ classes.inputLabel }>
-                                Email
-                            </InputLabel>
-                            <Input 
-                                id="email"
-                                type="text" 
-                                className={ classes.input }
-                                value={ this.state.email }
-                                onChange={ this.handleInputChange }
-                            />
-                        </FormControl><br/>
-                        
-                        <Button 
-                            variant="contained" 
-                            type="button"
-                            className={ classes.button }
-                            onClick={ this.handleSignUpSubmit }>
-                            Sign Up
-                        </Button> 
+                        <form onSubmit={this.handleSignUpSubmit}>
+                            <FormControl
+                                required={true}
+                                className={ classes.formControl }>
+                                <InputLabel 
+                                    name="username" 
+                                    type="text"
+                                    className={ classes.inputLabel }>
+                                    Username
+                                </InputLabel>
+                                <Input 
+                                    required
+                                    id="username" 
+                                    className={ classes.input }
+                                    value={ this.state.username }
+                                    onChange={ this.handleInputChange }
+                                />
+                            </FormControl><br/>
+                            <FormControl 
+                                required={true}
+                                className={ classes.formControl }>
+                                <InputLabel 
+                                    name="password" 
+                                    className={ classes.inputLabel }>
+                                    Password
+                                </InputLabel>
+                                <Input 
+                                    id="password" 
+                                    type="password"
+                                    className={ classes.input }
+                                    value={ this.state.password }
+                                    onChange={ this.handleInputChange }
+                                />
+                            </FormControl><br/>
+                            <FormControl 
+                                required={true}
+                                className={ classes.formControl }>
+                                <InputLabel 
+                                    name="firstname" 
+                                    type="text"
+                                    className={ classes.inputLabel }>
+                                    First Name
+                                </InputLabel>
+                                <Input 
+                                    id="firstname" 
+                                    className={ classes.nameInput }
+                                    value={ this.state.firstname }
+                                    onChange={ this.handleInputChange }
+                                />
+                            </FormControl>
+                            <FormControl
+                                required={true}>
+                                <InputLabel 
+                                    name="lastname" 
+                                    className={ classes.inputLabel }
+                                    style={{ paddingLeft: theme.spacing.unit * 4 }}>
+                                    Last Name
+                                </InputLabel>
+                                <Input 
+                                    id="lastname" 
+                                    type="text"
+                                    className={ classes.nameInput }
+                                    style={{ marginLeft: theme.spacing.unit * 3 }}
+                                    value={ this.state.lastname }
+                                    onChange={ this.handleInputChange }
+                                />
+                            </FormControl><br/>
+                            <FormControl
+                                required={true} 
+                                className={ classes.formControl }>
+                                <InputLabel 
+                                    name="email" 
+                                    className={ classes.inputLabel }>
+                                    Email
+                                </InputLabel>
+                                <Input 
+                                    id="email"
+                                    type="text" 
+                                    className={ classes.input }
+                                    value={ this.state.email }
+                                    onChange={ this.handleInputChange }
+                                />
+                            </FormControl><br/>
+                            <Button 
+                                variant="contained" 
+                                type="submit"
+                                className={ classes.button }
+                                >
+                                Sign Up
+                            </Button> 
+                            </form>
                     </Card>
                 </div>
                 <div>

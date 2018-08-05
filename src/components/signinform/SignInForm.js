@@ -45,7 +45,7 @@ class SignInForm extends Component {
     constructor(props){
         super(props);
         this.state = {
-            usernameEmail: "",
+            username: "",
             password: "",
         };
         this.handleInputChange = this.handleInputChange.bind(this);
@@ -61,7 +61,8 @@ class SignInForm extends Component {
         });
     }
 
-    handleSubmit(){
+    handleSubmit(event){
+        event.preventDefault();
         const params = this.state;
         this.props.signIn(params).then(res => {
             const id = res[0].id;
@@ -71,7 +72,7 @@ class SignInForm extends Component {
 
     handleDemoClick(){
         this.setState({
-            usernameEmail:"user23",
+            username:"user23",
             password: "123456",
         });
     }
@@ -80,40 +81,46 @@ class SignInForm extends Component {
         const { classes } = this.props;
         return(
             <div className={ classes.form }>
-            <FormControl action="/">
-                <Input 
-                    type="text"
-                    name="usernameEmail" 
-                    placeholder="Username/Email" 
-                    className={ classes.input }
-                    value={ this.state.usernameEmail }
-                    onChange={ this.handleInputChange }
-                />
-            </FormControl>
-            <FormControl>
-                <Input 
-                    type="password"
-                    name="password" 
-                    autoComplete="current-password"
-                    placeholder="Password" 
-                    className={ classes.input }
-                    value={ this.state.password }
-                    onChange={ this.handleInputChange }
-                />
-            </FormControl>
-            <Button 
-                variant="contained"
-                className={ classes.button }
-                onClick={ this.handleSubmit }
-                >
-                Sign in
-            </Button>
-            <Button
-                variant="contained"
-                className={ classes.button }
-                onClick={ this.handleDemoClick }>
-                Demo
-            </Button>
+            <form onSubmit={ this.handleSubmit }>
+                <FormControl
+                    required={true}  
+                    action="/">
+                    <Input
+                        type="text"
+                        name="username"
+                        required={true}   
+                        placeholder="Username" 
+                        className={ classes.input }
+                        value={ this.state.username }
+                        onChange={ this.handleInputChange }
+                    />
+                </FormControl>
+                <FormControl required={true}>
+                    <Input 
+                        type="password"
+                        name="password" 
+                        required={true}  
+                        autoComplete="current-password"
+                        placeholder="Password" 
+                        className={ classes.input }
+                        value={ this.state.password }
+                        onChange={ this.handleInputChange }
+                    />
+                </FormControl>
+                <Button
+                    variant="contained"
+                    type="submit"
+                    className={ classes.button }
+                    >
+                    Sign in
+                </Button>
+                <Button
+                    variant="contained"
+                    className={ classes.button }
+                    onClick={ this.handleDemoClick }>
+                    Demo
+                </Button>
+            </form>
         </div>
         )
     }
