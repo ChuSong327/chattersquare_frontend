@@ -133,7 +133,9 @@ class ChatRoomMessages extends Component {
                                 <div className={ classes.message }>
                                     <div>
                                         <Typography className={ classes.userName }> { name }</Typography>
-                                        <Typography className={ classes.timeStamp }><Moment fromNow>{ created_at }</Moment></Typography>
+                                        <Typography className={ classes.timeStamp }>
+                                            <Moment fromNow>{ created_at }</Moment>
+                                        </Typography>
                                     </div>
                                     <Typography className={ classes.content }>{ content }</Typography><br/>
                                 </div>
