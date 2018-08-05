@@ -24,7 +24,6 @@ export const updateFriends = (friends, type) => {
 export const signIn = (params) => {
     return (dispatch) => {
         return UserApiUtil.signIn(params).then(user => {
-            localStorage.setItem("currentUser", JSON.stringify(user));
             dispatch(updateUser(user, UserApiUtil.SIGN_IN));
             return user;
         })
@@ -34,7 +33,6 @@ export const signIn = (params) => {
 export const signUp = (params) => {
     return (dispatch) => {
         return UserApiUtil.signUp(params).then(user => {
-            localStorage.setItem("currentUser", JSON.stringify(user));
             dispatch(updateUser(user, UserApiUtil.SIGN_UP));
             return user;
         });

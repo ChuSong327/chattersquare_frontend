@@ -4,7 +4,7 @@ import DirectMessagesContainer from "../directmessages/DirectMessagesContainer";
 
 class PageDirectMessages extends Component {
     componentDidMount(){
-        const params = JSON.parse(localStorage.currentUser)[0].id;
+        const params = this.props.match.params.user_id;
         this.props.retrieveUser(params); 
     }
 

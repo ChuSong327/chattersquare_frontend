@@ -5,7 +5,7 @@ import { LinearProgress } from "@material-ui/core";
 
 class PageUserFriends extends Component {
     componentDidMount(){
-        const params = JSON.parse(localStorage.currentUser)[0].id;
+        const params = this.props.match.params.user_id;
         this.props.retrieveUser(params);
         this.props.getFriends(params);
     };

@@ -4,8 +4,8 @@ import ChatRoomNav from "../chatroomnav/ChatRoomNav";
 
 class PageChatRoomUsers extends Component {
     componentDidMount(){
-        const params = JSON.parse(localStorage.currentUser)[0].id;
-        const room_id = localStorage.currentRoom_id;
+        const params = this.props.match.params.user_id;
+        const room_id = this.props.match.params.room_id;
         this.props.retrieveUser(params);
         this.props.retrieveCurrentRoom(room_id);
         this.props.getRoomUsers(room_id);
