@@ -1,5 +1,5 @@
 import axios from "axios";
-import {prod, dev} from "./port";
+import { prod, dev } from "./port";
 
 export const SIGN_IN = "SIGN_IN";
 export const SIGN_UP = "SIGN_UP";
