@@ -10,17 +10,24 @@ const drawerWidth = 260;
 
 const styles = theme => ({
     root: {
-        marginLeft: "calc(120px)",
-        position: "relative",
+        marginLeft: `calc(${drawerWidth}px)`,
+        position: "absolute",
         overflow: "hidden",
-        display: "flex",
-
+        width: `calc(100% - ${drawerWidth}px)`,
+        [theme.breakpoints.down("xs")]: {
+            marginLeft: "calc(120px)",
+            width: "calc(100% - 120px)"
+        },
     },
     appbar: {
-        width: `calc(100% - 120px)`,
+        width: `calc(100% - ${drawerWidth}px)`,
         marginLeft: drawerWidth,
         background: "linear-gradient(to right,  #5f2c82, #49a09d)",
-        position: "fixed"
+        position: "fixed",
+        [theme.breakpoints.down("xs")]: {
+            marginLeft: "calc(120px)",
+            width: "calc(100% - 120px)"
+        },
     },
     toolbar: {
         display: "flex",
@@ -31,7 +38,9 @@ const styles = theme => ({
         color: theme.palette.primary.contrastText,
         letterSpacing: "1px",
         fontWeight: 300,
-        marginLeft: drawerWidth,
+        [theme.breakpoints.down("xs")]:{
+            fontSize: "0.8rem"
+        }
 
     }
 });
