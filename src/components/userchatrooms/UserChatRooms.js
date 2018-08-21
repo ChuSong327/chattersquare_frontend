@@ -40,7 +40,8 @@ const styles = theme => ({
         justifyContent: "flex-start",
         flexWrap: "wrap",
         marginLeft: theme.spacing.unit * 10,
-        marginTop: theme.spacing.unit * 2
+        marginTop: theme.spacing.unit * 2,
+        height: "100%",
     },
     card: {
         [theme.breakpoints.down("xs")]: {

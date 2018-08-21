@@ -18,7 +18,7 @@ const drawerWidth = 260;
 
 function TabContainer(props){
     return(
-        <div style={{ marginLeft: 0, paddingTop: "70px", width: "100%", height:"100vh", positino: "relative"}}>
+        <div style={{ marginLeft: 0, paddingTop: "70px", width: "100%", position: "relative"}}>
             { props.children }
         </div>
     )
