@@ -30,7 +30,8 @@ const styles = theme => ({
     title: {
         color: theme.palette.primary.contrastText,
         letterSpacing: "1px",
-        fontWeight: 300
+        fontWeight: 300,
+        marginLeft: drawerWidth,
 
     }
 });
@@ -44,7 +45,7 @@ class DirectMessages extends Component {
                 <div className={ classes.root }>
                     <AppBar className={ classes.appbar}>
                         <Toolbar className={ classes.toolbar }>
-                            <Typography variant="title" className={ classes.title }>{ name }</Typography>
+                            <Typography variant="title" className={ classes.title }>In developing process...</Typography>
                         </Toolbar>
                     </AppBar>
                     
