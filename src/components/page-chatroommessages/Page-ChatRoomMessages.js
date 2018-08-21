@@ -5,11 +5,15 @@ import { LinearProgress } from "@material-ui/core";
 
 class PageChatRoomMessages extends Component {
     componentDidMount(){
-        const params = JSON.parse(localStorage.user_id);
-        const room_id = this.props.match.params.room_id;
-        this.props.retrieveUser(params);
-        this.props.retrieveCurrentRoom(room_id);
-        this.props.getRoomMessages(room_id);
+        if(!localStorage.length) {
+            this.props.history.push("/")
+        } else {
+            const params = JSON.parse(localStorage.user_id);
+            const room_id = this.props.match.params.room_id;
+            this.props.retrieveUser(params);
+            this.props.retrieveCurrentRoom(room_id);
+            this.props.getRoomMessages(room_id);
+        }
     };
 
     render(){

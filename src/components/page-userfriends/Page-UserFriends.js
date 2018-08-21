@@ -5,9 +5,14 @@ import { LinearProgress } from "@material-ui/core";
 
 class PageUserFriends extends Component {
     componentDidMount(){
-        const params = JSON.parse(localStorage.user_id);
-        this.props.retrieveUser(params);
-        this.props.getFriends(params);
+        if(!localStorage.length) {
+            this.props.history.push("/")
+        } else {
+            const params = JSON.parse(localStorage.user_id);
+            this.props.retrieveUser(params);
+            this.props.getFriends(params);
+        }
+        
     };
 
     render(){

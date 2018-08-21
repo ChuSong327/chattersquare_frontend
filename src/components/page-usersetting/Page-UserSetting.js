@@ -5,8 +5,12 @@ import { LinearProgress } from "@material-ui/core";
 
 class PageUserSetting extends Component {
     componentDidMount(){
-        const params = JSON.parse(localStorage.user_id);
-        this.props.retrieveUser(params);
+        if(!localStorage.length) {
+            this.props.history.push("/")
+        } else {
+            const params = JSON.parse(localStorage.user_id);
+            this.props.retrieveUser(params);
+        }
     };
     render() {
         if(!this.props.currentUser) {
