@@ -29,6 +29,12 @@ const Transition = props => {
 
 const styles = theme => ({
     root: {
+        [theme.breakpoints.down("xs")]: {
+            margin: 0
+        },
+        [theme.breakpoints.up("sm")]: {
+            marginLeft: theme.spacing.unit * 5,
+        },
         display: "flex",
         flexDirection: "row",
         justifyContent: "flex-start",
@@ -37,6 +43,14 @@ const styles = theme => ({
         marginTop: theme.spacing.unit * 2
     },
     card: {
+        [theme.breakpoints.down("xs")]: {
+            height: theme.spacing.unit * 15,
+            width: theme.spacing.unit * 25,
+        },
+        [theme.breakpoints.up("sm")]: {
+            height: theme.spacing.unit * 25,
+            width: theme.spacing.unit * 35,
+        },
         height: theme.spacing.unit * 40,
         width: theme.spacing.unit * 50,
         margin: theme.spacing.unit * 3,
@@ -49,6 +63,14 @@ const styles = theme => ({
         position: "relative"
     },
     image: {
+        [theme.breakpoints.down("xs")]: {
+            height: "65%",
+            paddingTop: 0,
+        },
+        [theme.breakpoints.up("sm")]: {
+            height: "65%",
+            paddingTop: 0,
+        },
         height: theme.spacing.unit * 25,
         paddingTop: theme.spacing.unit * 5,
         "&:hover": {
@@ -62,21 +84,26 @@ const styles = theme => ({
         alignItems: "center"
     },
     title: {
+        [theme.breakpoints.down("xs")]: {
+           fontSize: "0.8rem",
+           paddingTop: theme.spacing.unit,
+        },
         fontSize: "1.3rem",
         paddingLeft: theme.spacing.unit * 3,
         paddingTop: theme.spacing.unit * 3,
         "&:hover": {
             transform:"translateY(-1px)"
         },
-        display:"inline-block",
         textDecoration: "none",
     },
     vertButton: {
         color: "#BDBDBD",
-        display: "inline-block",
-        marginTop: theme.spacing.unit * 2
     },
     openButton: {
+        [theme.breakpoints.down("xs")]: {
+            fontSize: "0.7rem",
+            marginLeft: theme.spacing.unit * 2,
+         },
         float: "left",
         marginLeft: theme.spacing.unit * 5,
         marginTop: theme.spacing.unit * 3,
@@ -102,6 +129,15 @@ const styles = theme => ({
         flexWrap: "wrap"
     },
     dialogCard: {
+        [theme.breakpoints.down("xs")]: {
+            height: theme.spacing.unit * 15,
+            width: theme.spacing.unit * 25,
+            margin: theme.spacing.unit * 2,
+        },
+        [theme.breakpoints.up("sm")]: {
+            height: theme.spacing.unit * 25,
+            width: theme.spacing.unit * 35,
+        },
         width: theme.spacing.unit * 40,
         margin: theme.spacing.unit * 5,
         borderRadius:"20px",
@@ -122,6 +158,10 @@ const styles = theme => ({
         }
     },
     dialogTitleContainer: {
+        [theme.breakpoints.down("xs")]: {
+            top: "38%",
+            left:"23%",
+        },
         position: "absolute",
         width: theme.spacing.unit * 13,
         height: theme.spacing.unit * 8,
@@ -130,6 +170,9 @@ const styles = theme => ({
         
     },
     dialogTitle: {
+        [theme.breakpoints.down("xs")]: {
+            fontSize: "0.8rem",
+         },
         color: "#ffffff",
         textAlign: "center",
         fontSize: "1rem",

@@ -16,16 +16,20 @@ import {
     ExpandLess
 } from "@material-ui/icons";
 
-const drawerWidth = 260;
-
 const styles = theme => ({
     drawerPaper: {
+        [theme.breakpoints.down("xs")]: {
+            width: "120px",
+        },
         position: "fixed",
-        width: drawerWidth,
+        width: 260,
         height: "100%",
         background: "linear-gradient(to bottom, #232526, #414345)"
     },
     userSection: {
+        [theme.breakpoints.down("xs")]: {
+            marginLeft: "10px",
+        },
         display: "flex",
         flexDirection: "row",
         justifyContent: "flex-start",
@@ -35,27 +39,46 @@ const styles = theme => ({
         alignItems: "center"
     },
     userName: {
+        [theme.breakpoints.down("xs")]: {
+            fontSize:"0.8rem",
+            marginLeft: theme.spacing.unit,
+        },
         color: "rgb(255,255,255)",
         marginLeft: theme.spacing.unit * 2,
         fontSize: "1rem",
         letterSpacing:"1px"
     },
     avatar: {
+        [theme.breakpoints.down("xs")]:{
+            width: "35px",
+            height: "35px"
+        },
         width: 60,
         height: 60,
+
     },
     item: {
+        [theme.breakpoints.down("xs")]:{
+            height: theme.spacing.unit * 5,
+        },
         height: theme.spacing.unit * 6,
         "&:hover":{
             background: "#49a09d"
         },
     },
     itemText: {
+        [theme.breakpoints.down("xs")]:{
+            fontSize: "0.8rem"
+        },
         color: "#ffffff",
         letterSpacing: "1px",
         fontSize: "0.9rem"
     },
     logOut: {
+        [theme.breakpoints.down("xs")]:{
+            marginLeft: theme.spacing.unit * 4,
+            fontSize: "0.6rem",
+        },
         color: "#ffffff",
         letterSpacing: "1px",
         fontSize: "0.7rem",
@@ -125,11 +148,11 @@ class SideBar extends Component {
                                 classes={{ primary: classes.itemText }} 
                                 primary="Direct Messages"
                             />
-                            <Button 
+                            {/* <Button 
                                 onClick={ this.handleExpandClick } 
                                 size="small">
                                 { this.state.open ? <ExpandMore/> : <ExpandLess/> }
-                            </Button>
+                            </Button> */}
                         </ListItem>
                     </List>
                     <Button 

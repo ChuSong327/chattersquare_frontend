@@ -10,14 +10,14 @@ const drawerWidth = 260;
 
 const styles = theme => ({
     root: {
-        marginLeft: `calc(${drawerWidth}px)`,
+        marginLeft: "calc(120px)",
         position: "relative",
         overflow: "hidden",
         display: "flex",
 
     },
     appbar: {
-        width: `calc(100% - ${drawerWidth}px)`,
+        width: `calc(100% - 120px)`,
         marginLeft: drawerWidth,
         background: "linear-gradient(to right,  #5f2c82, #49a09d)",
         position: "fixed"

@@ -14,7 +14,18 @@ const styles = theme => ({
         margin: theme.spacing.unit * 0.5,
         borderRadius: "5px",
         letterSpacing: "1px",
-        fontSize: "0.8rem",
+        [theme.breakpoints.down("xs")]: {
+            fontSize: "0.5rem",
+            minWidth: "auto",
+            minHeihgt: "0.5rem",
+            padding: "0px 2px 0px 2px"
+        },
+        [theme.breakpoints.up("sm")]: {
+            fontSize: "0.8rem"
+        },
+        [theme.breakpoints.up("lg")]:{
+            fontSize:"0.8rem"
+        },
         "&:hover": {
             backgroundColor: "rgba(95,44,130, 0.2)"
         },
@@ -27,11 +38,20 @@ const styles = theme => ({
         flexDirection: "row",
         justifyContent:"space-around",
         alignItems: "center",
+        [theme.breakpoints.down("xs")]: {
+            justifyContent:"flex-start",
+        },
     },
     input: {
+        [theme.breakpoints.down("xs")]: {
+            paddingLeft: 0,
+            fontSize: "0.6rem",
+            // width: "3rem",
+            margin: "2px",
+        },
+        // height: "32px",
         margin: theme.spacing.unit * 0.5,
         paddingLeft: theme.spacing.unit,
-        height: "32px",
         color: theme.palette.primary.contrastText,
         fontSize: "1rem",
         "&:after": {
@@ -64,6 +84,7 @@ class SignInForm extends Component {
     handleSubmit(event){
         event.preventDefault();
         const params = this.state;
+        localStorage.setItem("currentUser", JSON.stringify(params));
         this.props.signIn(params).then(res => {
             const id = res[0].id;
             this.context.router.history.push(`/users/${id}/dashboard/chatrooms`);
@@ -81,47 +102,47 @@ class SignInForm extends Component {
         const { classes } = this.props;
         return(
             <div className={ classes.form }>
-            <form onSubmit={ this.handleSubmit }>
-                <FormControl
-                    required={true}  
-                    action="/">
-                    <Input
-                        type="text"
-                        name="username"
-                        required={true}   
-                        placeholder="Username" 
-                        className={ classes.input }
-                        value={ this.state.username }
-                        onChange={ this.handleInputChange }
-                    />
-                </FormControl>
-                <FormControl required={true}>
-                    <Input 
-                        type="password"
-                        name="password" 
+                <form onSubmit={ this.handleSubmit }>
+                    <FormControl
                         required={true}  
-                        autoComplete="current-password"
-                        placeholder="Password" 
-                        className={ classes.input }
-                        value={ this.state.password }
-                        onChange={ this.handleInputChange }
-                    />
-                </FormControl>
-                <Button
-                    variant="contained"
-                    type="submit"
-                    className={ classes.button }
-                    >
-                    Sign in
-                </Button>
-                <Button
-                    variant="contained"
-                    className={ classes.button }
-                    onClick={ this.handleDemoClick }>
-                    Demo
-                </Button>
-            </form>
-        </div>
+                        action="/">
+                        <Input
+                            type="text"
+                            name="username"
+                            required={true}   
+                            placeholder="Username" 
+                            className={ classes.input }
+                            value={ this.state.username }
+                            onChange={ this.handleInputChange }
+                        />
+                    </FormControl>
+                    <FormControl required={true}>
+                        <Input 
+                            type="password"
+                            name="password" 
+                            required={true}  
+                            autoComplete="current-password"
+                            placeholder="Password" 
+                            className={ classes.input }
+                            value={ this.state.password }
+                            onChange={ this.handleInputChange }
+                        />
+                    </FormControl>
+                    <Button
+                        variant="contained"
+                        type="submit"
+                        className={ classes.button }
+                        >
+                        Sign in
+                    </Button>
+                    <Button
+                        variant="contained"
+                        className={ classes.button }
+                        onClick={ this.handleDemoClick }>
+                        Demo
+                    </Button>
+                </form>
+            </div>
         )
     }
 };

@@ -30,12 +30,20 @@ TabContainer.propTypes = {
 
 const styles = theme => ({
     root: {
+        [theme.breakpoints.down("xs")]: {
+            marginLeft: "calc(120px)",
+            width: "calc(100% - 120px)"
+        },
         marginLeft: `calc(${drawerWidth}px)`,
         position: "absolute",
         overflow: "hidden",
         width: `calc(100% - ${drawerWidth}px)`
     },
     appbar: {
+        [theme.breakpoints.down("xs")]: {
+            marginLeft: "calc(120px)",
+            width: "calc(100% - 120px)"
+        },
         width: `calc(100% - ${drawerWidth}px)`,
         marginLeft: drawerWidth,
         background: "linear-gradient(to right,  #5f2c82, #49a09d)",
@@ -47,17 +55,28 @@ const styles = theme => ({
         justifyContent: "space-between"
     },
     title: {
+        [theme.breakpoints.down("xs")]:{
+            display:"none"
+        },
         color: theme.palette.primary.contrastText,
         letterSpacing: "1px",
         fontWeight: 300
     },
     tabContent: {
-        letterSpacing: "1.2px"
+        letterSpacing: "1.2px",
+        [theme.breakpoints.down("xs")]:{
+            width: "25%",
+        }
+    },
+    tabLabel: {
+        [theme.breakpoints.down("xs")]:{
+            fontSize: "0.5rem",
+        },
     },
     tabContainer: {
         marginLeft: drawerWidth,
         marginTop: "200px",
-        width: "100%"
+        width: "100%",
     }
 });
 
@@ -83,9 +102,18 @@ class Dashboard extends Component {
                         <Typography variant="title" className={ classes.title }>Dashboard</Typography>
                         <div>
                             <Tabs value={ this.state.value } onChange={ this.handleTabChange }>
-                                <Tab label="My Chatrooms" component={ NavLink } to={`/users/${this.props.state.currentUser.id}/dashboard/chatrooms`} className={ classes.tabContent }/>
-                                <Tab label="My Friends" component={ NavLink } to={`/users/${this.props.state.currentUser.id}/dashboard/friends`} className={ classes.tabContent }/>
-                                <Tab label="Setting" component={ NavLink } to={`/users/${this.props.state.currentUser.id}/dashboard/setting`} className={ classes.tabContent }/>
+                                <Tab 
+                                    label={<span className={ classes.tabLabel}>Chatrooms</span>} 
+                                    component={ NavLink } to={`/users/${this.props.state.currentUser.id}/dashboard/chatrooms`} 
+                                    className={ classes.tabContent }/>
+                                <Tab 
+                                    label={<span className={ classes.tabLabel}>Friends</span>} 
+                                    component={ NavLink } to={`/users/${this.props.state.currentUser.id}/dashboard/friends`} 
+                                    className={ classes.tabContent }/>
+                                <Tab 
+                                    label={<span className={ classes.tabLabel}>Setting</span>} 
+                                    component={ NavLink } to={`/users/${this.props.state.currentUser.id}/dashboard/setting`} 
+                                    className={ classes.tabContent }/>
                             </Tabs>
                         </div>
                     </Toolbar>

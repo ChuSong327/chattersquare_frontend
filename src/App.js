@@ -15,6 +15,9 @@ const theme = createMuiTheme ({
     primary: { main: "#5f2c82", contrastText: "rgb(255,255,255)" },
     secondary: { main: "#49a09d", contrastText:"#556DAC" }
   },
+  breakpoints: {
+    
+  }
 });
 
 class App extends Component {
