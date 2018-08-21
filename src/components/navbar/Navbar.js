@@ -43,8 +43,6 @@ const styles = theme => ({
 
 class Navbar extends Component{
     render(){
-        console.log(this.props.theme.breakpoints.down)
-        console.log(this.props.theme.breakpoints)
         const { classes } = this.props;
         return (
             <div className={ classes.root }>

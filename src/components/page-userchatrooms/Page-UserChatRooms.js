@@ -5,7 +5,7 @@ import { LinearProgress } from "@material-ui/core";
 
 class PageUserChatRooms extends Component {
     componentDidMount(){
-        const params = this.props.match.params.user_id;
+        const params = JSON.parse(localStorage.user_id);
         this.props.retrieveUser(params);
         this.props.getRooms(params);
     }

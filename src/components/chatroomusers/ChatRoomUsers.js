@@ -15,7 +15,6 @@ const styles = theme => ({
     usersContainer: {
         marginTop: theme.spacing.unit * 10,
         marginLeft: theme.spacing.unit * 5,
-        // width: "80%",
         display: "flex",
         flexDirection: "row",
         justifyContent: "flex-start",
@@ -82,7 +81,7 @@ class ChatRoomUsers extends Component {
         })
     };
 
-    handleAddFriend(event) {
+    handleAddFriend() {
         this.setState({
             anchorEl: null
         })

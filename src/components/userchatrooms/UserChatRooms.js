@@ -44,14 +44,6 @@ const styles = theme => ({
         height: "100%",
     },
     card: {
-        [theme.breakpoints.down("xs")]: {
-            height: theme.spacing.unit * 15,
-            width: theme.spacing.unit * 25,
-        },
-        [theme.breakpoints.up("sm")]: {
-            height: theme.spacing.unit * 25,
-            width: theme.spacing.unit * 35,
-        },
         height: theme.spacing.unit * 40,
         width: theme.spacing.unit * 50,
         margin: theme.spacing.unit * 3,
@@ -61,9 +53,22 @@ const styles = theme => ({
         "&:hover":{
             boxShadow: "5px"
         },
-        position: "relative"
+        position: "relative",
+        [theme.breakpoints.down("xs")]: {
+            height: theme.spacing.unit * 15,
+            width: theme.spacing.unit * 25,
+        },
+        [theme.breakpoints.up("sm")]: {
+            height: theme.spacing.unit * 25,
+            width: theme.spacing.unit * 35,
+        },
     },
     image: {
+        height: theme.spacing.unit * 25,
+        paddingTop: theme.spacing.unit * 5,
+        "&:hover": {
+            opacity: "0.8"
+        },
         [theme.breakpoints.down("xs")]: {
             height: "65%",
             paddingTop: 0,
@@ -72,11 +77,6 @@ const styles = theme => ({
             height: "65%",
             paddingTop: 0,
         },
-        height: theme.spacing.unit * 25,
-        paddingTop: theme.spacing.unit * 5,
-        "&:hover": {
-            opacity: "0.8"
-        }
     },
     titleAndButton: {
         display: "flex",
@@ -89,7 +89,7 @@ const styles = theme => ({
            fontSize: "0.8rem",
            paddingTop: theme.spacing.unit,
         },
-        fontSize: "1.3rem",
+        fontSize: "1.1rem",
         paddingLeft: theme.spacing.unit * 3,
         paddingTop: theme.spacing.unit * 3,
         "&:hover": {
@@ -207,7 +207,6 @@ class UserChatRooms extends Component {
             anchorEl: null,
             room_id: ""
         }
-        this.handleRoomClick = this.handleRoomClick.bind(this);
         this.handleButtonClose = this.handleButtonClose.bind(this);
         this.handleButtonOpen = this.handleButtonOpen.bind(this);
         this.handleDialogRoomClick = this.handleDialogRoomClick.bind(this);
@@ -216,12 +215,7 @@ class UserChatRooms extends Component {
         this.handleClose = this.handleClose.bind(this);
     };
 
-    handleRoomClick(event){
-        localStorage.setItem("currentRoom_id", event.currentTarget.id);
-    };
-
     handleDialogRoomClick(event){
-        localStorage.setItem("currentRoom_id", event.currentTarget.id);
         const params = {
             user_id: this.props.state.currentUser.id,
             room_id: event.currentTarget.id
@@ -255,7 +249,7 @@ class UserChatRooms extends Component {
         });
     };
 
-    handleRemoveRoom(event){
+    handleRemoveRoom(){
         this.setState({
             anchorEl: null
         });

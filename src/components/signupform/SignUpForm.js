@@ -261,9 +261,11 @@ class SignUpForm extends Component {
     handleSignUpSubmit(event) {
         event.preventDefault();
         const params = this.state;
-        localStorage.setItem("currentUser", JSON.stringify(params));
         this.props.signUp(params).then(res => {
             const id = res[0].id;
+            const currentUser = this.state;
+            localStorage.setItem("currentUser", JSON.stringify(currentUser));
+            localStorage.setItem("user_id", JSON.stringify(id));
             this.context.router.history.push(`/users/${id}/dashboard/chatrooms`);
         });
     };

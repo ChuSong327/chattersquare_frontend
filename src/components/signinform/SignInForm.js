@@ -46,10 +46,8 @@ const styles = theme => ({
         [theme.breakpoints.down("xs")]: {
             paddingLeft: 0,
             fontSize: "0.6rem",
-            // width: "3rem",
             margin: "2px",
         },
-        // height: "32px",
         margin: theme.spacing.unit * 0.5,
         paddingLeft: theme.spacing.unit,
         color: theme.palette.primary.contrastText,
@@ -84,9 +82,11 @@ class SignInForm extends Component {
     handleSubmit(event){
         event.preventDefault();
         const params = this.state;
-        localStorage.setItem("currentUser", JSON.stringify(params));
         this.props.signIn(params).then(res => {
             const id = res[0].id;
+            const currentUser = this.state;
+            localStorage.setItem("currentUser", JSON.stringify(currentUser));
+            localStorage.setItem("user_id", JSON.stringify(id));
             this.context.router.history.push(`/users/${id}/dashboard/chatrooms`);
         });
     }

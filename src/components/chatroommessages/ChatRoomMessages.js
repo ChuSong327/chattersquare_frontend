@@ -9,8 +9,6 @@ import {
 } from "@material-ui/core";
 import Moment from "react-moment";
 
-const drawerWidth = 260;
-
 const styles = theme => ({
     chatContainer: {
         marginTop: theme.spacing.unit * 10,
