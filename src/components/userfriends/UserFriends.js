@@ -75,7 +75,7 @@ const styles = theme => ({
         width: "70%",
         display: "flex",
         flexDirection: "row",
-        justifyContent: "space-between",
+        justifyContent: "space-around",
         alignItems: "center",
         [theme.breakpoints.down("xs")]:{
             flexDirection: "column",

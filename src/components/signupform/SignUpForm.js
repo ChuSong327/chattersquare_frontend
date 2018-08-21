@@ -99,19 +99,19 @@ const styles = theme => ({
         [theme.breakpoints.up("sm")]:{
             height: "100px",
             width: "100px",
-            marginTop:"-50px",
+            marginTop:"-18px",
             marginLeft: "200px"
         },
         [theme.breakpoints.up("md")]:{
             height: "120px",
             width: "120px",
-            marginTop:"-70px",
+            marginTop:"-20px",
             marginLeft: "180px"
         },
         [theme.breakpoints.up("lg")]:{
             height: "135px",
             width: "135px",
-            marginTop:"-70px",
+            marginTop:"-20px",
             marginLeft: "200px"
         },
         borderRadius: "50%",

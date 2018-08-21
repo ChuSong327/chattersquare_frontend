@@ -32,30 +32,43 @@ const styles = theme => ({
         marginLeft: `calc(${drawerWidth}px)`,
         position: "absolute",
         overflow: "hidden",
-        width: `calc(100% - ${drawerWidth}px)`
+        width: `calc(100% - ${drawerWidth}px)`,
+        [theme.breakpoints.down("xs")]: {
+            marginLeft: "calc(120px)",
+            width: "calc(100% - 120px)"
+        },
     },
     appbar: {
         width: `calc(100% - ${drawerWidth}px)`,
         marginLeft: drawerWidth,
         background: "linear-gradient(to right,  #5f2c82, #49a09d)",
-        position: "fixed"
+        position: "fixed",
+        [theme.breakpoints.down("xs")]: {
+            marginLeft: "calc(120px)",
+            width: "calc(100% - 120px)"
+        },
     },
     toolbar: {
         display: "flex",
         flexDirection: "row",
-        justifyContent: "space-between"
+        justifyContent: "space-between",
+        paddingLeft: theme.spacing.unit,
+        paddingRight: 0
     },
     title: {
         color: theme.palette.primary.contrastText,
         letterSpacing: "1px",
-        fontWeight: 300
+        fontWeight: 300,
+        [theme.breakpoints.down("xs")]: {
+            fontSize: "0.9rem",
+            fontWeight:400,
+        },
     },
-    tabContainer: {
-        marginLeft: drawerWidth,
-        marginTop: "200px",
-        width: "100%"
-    },
-    
+    tabLabel: {
+        [theme.breakpoints.down("xs")]: {
+            fontSize: "0.6rem"
+        },
+    }
 });
 
 class ChatRoomNav extends Component {
@@ -80,9 +93,15 @@ class ChatRoomNav extends Component {
                     <Toolbar className={ classes.toolbar }>
                         <Typography variant="title" className={ classes.title }>{ currentRoom.name }</Typography>
                         <div>
-                            <Tabs value={ this.state.value } onChange={ this.handleTabChange }>
-                                <Tab label="Messages" component={ NavLink } to={`/chatrooms/user/${ currentUser.id }/chatroom/${ currentRoom.id }/messages`} className={ classes.tabContent }/>
-                                <Tab label="Users" component={ NavLink } to={`/chatrooms/user/${ currentUser.id }/chatroom/${ currentRoom.id }/users`} className={ classes.tabContent }/>
+                            <Tabs value={ this.state.value } onChange={ this.handleTabChange } className={ classes.tabContainer}>
+                                <Tab 
+                                    label={<span className={ classes.tabLabel }>Messages</span>} 
+                                    component={ NavLink } 
+                                    to={`/chatrooms/user/${ currentUser.id }/chatroom/${ currentRoom.id }/messages`} 
+                                    className={ classes.tabContent }/>
+                                <Tab 
+                                    label={<span className={ classes.tabLabel }>Users</span>} 
+                                    component={ NavLink } to={`/chatrooms/user/${ currentUser.id }/chatroom/${ currentRoom.id }/users`} className={ classes.tabContent }/>
                             </Tabs>
                         </div>
                     </Toolbar>
