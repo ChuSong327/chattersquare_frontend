@@ -18,66 +18,110 @@ const styles = theme => ({
         flexDirection: "column",
         justifyContent: "flex-start",
         alignItems: "center",
-        width: "100%",
+        width: "100%",       
         marginTop: theme.spacing.unit * 5,
         marginLeft: theme.spacing.unit * 5,
+        [theme.breakpoints.down("xs")]:{
+            margin: theme.spacing.unit,
+            alignItems: "flex-start",
+        },
     },
     card: {
-        height: theme.spacing.unit * 12,
+        height: "auto",
         width: "100%",
         boxShadow: "none",
-        marginBottom: theme.spacing.unit * 2
+        marginBottom: theme.spacing.unit * 2,
+        [theme.breakpoints.down("xs")]:{
+            height: theme.spacing.unit * 12,
+        },
     },
     content: {
         display: "flex",
-        flexDirection: "row",
+        flexDirection: "column",
         justifyContent: "flex-start",
-        alignItems: "center",
-        flexWrap: "wrap"
+        alignItems: "flex-start",
+        flexWrap: "wrap",
+        [theme.breakpoints.down("xs")]:{
+            flexDirection: "column",
+            justifyContent:"flex-start",
+            alignItems: "flex-start",
+        }
     },
     mainInfo: {
-        width: theme.spacing.unit * 35,
         display: "flex",
         flexDirection: "row",
     },
     avatar: {
         height: 55,
         width: 55,
+        [theme.breakpoints.down("xs")]:{
+            height: 30,
+            width: 30,
+        },
     },
     userName: {
         fontSize: "1.2rem",
         paddingTop: theme.spacing.unit * 2,
-        marginLeft: theme.spacing.unit * 2
+        marginLeft: theme.spacing.unit * 2,
+        [theme.breakpoints.down("xs")]:{
+            fontSize: "0.8rem",
+            padding: 0,
+            marginLeft: theme.spacing.unit
+        },
     },
     userInfo: {
         paddingTop: theme.spacing.unit,
-        width: theme.spacing.unit * 65,
+        paddingLeft: theme.spacing.unit * 8,
+        width: "70%",
         display: "flex",
         flexDirection: "row",
         justifyContent: "space-between",
         alignItems: "center",
+        [theme.breakpoints.down("xs")]:{
+            flexDirection: "column",
+            alignItems:"flex-start",
+            paddingLeft: theme.spacing.unit * 3
+        },
     },
     contact: {
         display: "flex",
         flexDirection: "row",
         alignItems: "center",
-        marginBottom: theme.spacing.unit
+        marginBottom: theme.spacing.unit,
+        [theme.breakpoints.down("xs")]:{
+            fontSize: "0.8rem"
+        },
+    },
+    emailAndPhone: {
+        [theme.breakpoints.down("xs")]:{
+            fontSize: "0.6rem"
+        }
     },
     icon: {
         color: "#BDBDBD",
         fontSize: "1.1rem",
         paddingTop: theme.spacing.unit * 0.3,
-        marginRight: theme.spacing.unit * 1.2
-    },
-    button: {
-        color: theme.palette.primary.contrastText,
-        backgroundColor: theme.palette.secondary.main,
-        "&:hover": {
-            backgroundColor: theme.palette.secondary.light
+        marginRight: theme.spacing.unit * 1.2,
+        [theme.breakpoints.down("xs")]:{
+            fontSize: "0.7rem"
         },
-        "&:after": {
-            border: "none"
-        }
+    },
+    iconChat:{
+        color: "#4DB6AC", 
+        cursor: "pointer",
+        [theme.breakpoints.down("xs")]:{
+            fontSize: "0.7rem",
+            padding: 0
+        },
+    },
+    iconDelete: {
+        color: "#E57373", 
+        marginLeft: theme.spacing.unit * 2, 
+        cursor:"pointer",
+        [theme.breakpoints.down("xs")]:{
+            fontSize: "0.7rem",
+            padding: 0
+        },
     }
 });
 
@@ -119,26 +163,26 @@ class UserFriends extends Component {
                                 <div className={ classes.userInfo }>
                                     <div className={ classes.contact }>   
                                         <Email className={ classes.icon }></Email> 
-                                        <Typography >
+                                        <Typography className={ classes.emailAndPhone }>
                                             { friend.email }
                                         </Typography>
                                     </div>
                                     <div className={ classes.contact }>
                                         <Phone className={ classes.icon }></Phone>
-                                        <Typography>
+                                        <Typography className={ classes.emailAndPhone }>
                                             { friend.phone }
                                         </Typography>
                                     </div>
                                     <div>
-                                        <ChatBubble style={{ color: "#4DB6AC", cursor: "pointer" }}/>
+                                        <ChatBubble className={ classes.iconChat}/>
                                         <Delete 
                                             component="button"
-                                            style={{ color: "#E57373", marginLeft: theme.spacing.unit * 2, cursor:"pointer" }}
+                                            className={ classes.iconDelete}
                                             id={ id }
                                             onClick={ this.handleDelete }
                                         />
                                     </div>
-                            </div>
+                                </div>
                             </div>
                         </Card>
                     )
