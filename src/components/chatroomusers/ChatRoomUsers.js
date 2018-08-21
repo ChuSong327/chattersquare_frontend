@@ -15,12 +15,16 @@ const styles = theme => ({
     usersContainer: {
         marginTop: theme.spacing.unit * 10,
         marginLeft: theme.spacing.unit * 5,
-        width: "80%",
+        // width: "80%",
         display: "flex",
         flexDirection: "row",
         justifyContent: "flex-start",
         alignItems: "flex-end",
         flexWrap: "wrap",
+        [theme.breakpoints.down("xs")]:{
+            marginTop: theme.spacing.unit * 7,
+            marginLeft: theme.spacing.unit * 2,
+        }
     },
     card: {
         display:"flex",
@@ -30,15 +34,34 @@ const styles = theme => ({
         boxShadow: "none",
         height: theme.spacing.unit * 12,
         width: theme.spacing.unit * 26,
+        [theme.breakpoints.down("xs")]:{
+            flexDirection: "row",
+            height: theme.spacing.unit * 7,
+        }
     },
     userName: {
         marginTop: theme.spacing.unit,
         marginLeft: theme.spacing.unit * 2.5,
-        display: "inline-block"
+        display: "inline-block",
+        [theme.breakpoints.down("xs")]:{
+            marginLeft: theme.spacing.unit,
+        }
     },
     button: {
-        color: "#BDBDBD"
+        color: "#BDBDBD",
+        [theme.breakpoints.down("xs")]:{
+            fontSize: "1rem"
+        }
     },
+    avatar: {
+        cursor: "pointer", 
+        height: theme.spacing.unit * 6, 
+        width: theme.spacing.unit * 6, 
+        [theme.breakpoints.down("xs")]:{
+            height: 30, 
+            width: 30, 
+        }
+    }
 });
 
 class ChatRoomUsers extends Component {
@@ -86,11 +109,7 @@ class ChatRoomUsers extends Component {
                             className={ classes.card }>
                             <Avatar 
                                 src={ profile }
-                                style={{ 
-                                    cursor: "pointer", 
-                                    height: theme.spacing.unit * 6, 
-                                    width: theme.spacing.unit * 6 
-                                }} 
+                                className={ classes.avatar } 
                             />
                             <div>
                                 <Typography 

@@ -60,7 +60,7 @@ const styles = theme => ({
         letterSpacing: "1px",
         fontWeight: 300,
         [theme.breakpoints.down("xs")]: {
-            fontSize: "0.9rem",
+            fontSize: "0.8rem",
             fontWeight:400,
         },
     },

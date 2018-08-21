@@ -28,7 +28,10 @@ const styles = theme => ({
         width: "90%",
         boxShadow: "none",
         display: "flex",
-        flexDirection: "row"
+        flexDirection: "row",
+        [theme.breakpoints.down("xs")]:{
+            marginLeft: theme.spacing.unit,
+        }
     },
     message: {
         display: "flex",
@@ -41,45 +44,72 @@ const styles = theme => ({
         color: theme.palette.primary.light,
         fontWeight: "bold",
         display: "inline-block",
-        cursor: "pointer"
+        cursor: "pointer",
+        [theme.breakpoints.down("xs")]:{
+            fontSize:"0.8rem"
+        }
     },
     timeStamp: {
         color: "#afaeae",
         marginLeft: theme.spacing.unit,
         marginTop: "3px",
         fontSize: "0.8rem",
-        display: "inline-block"
+        display: "inline-block",
+        [theme.breakpoints.down("xs")]:{
+            fontSize:"0.7rem"
+        }
     },
     content: {
         fontSize: "1rem",
-        marginTop: theme.spacing.unit
+        marginTop: theme.spacing.unit,
+        [theme.breakpoints.down("xs")]:{
+            fontSize:"0.8rem"
+        }
+    },
+    avatar:{
+        cursor: "pointer",
+        [theme.breakpoints.down("xs")]:{
+            height: 30,
+            width: 30
+        }
     },
     inputContainer: {
         bottom: 0,
         right: 0,
-        left: `calc(${drawerWidth}px)`,
+        left: 0,
         height: theme.spacing.unit * 5,
+        width: `calc(100% - 260px)`,
+        marginLeft:"260px",
         overFlow: "hidden",
-        backgroundColor: "#ffffff",
+        backgroundColor: "rgb(255,255,255)",
         paddingBottom: theme.spacing.unit * 3,
-        position: "fixed"
+        position: "fixed",
+        [theme.breakpoints.down("xs")]:{
+            paddingBottom: theme.spacing.unit,
+            width: `calc(100% - 120px)`,
+            marginLeft:"120px",
+        }
     },
     formControl: {
-        width: `calc(100% - 65px)`,
-        marginLeft: theme.spacing.unit * 3,
+        width: "calc(100% - 32px)",
+        marginLeft: theme.spacing.unit,
     },
     input: {
         borderStyle: "solid",
-        borderWidth: "1.6px",
+        borderWidth: "1px",
         borderColor: "#757575",
-        borderRadius: "6px",
+        borderRadius: "3px",
         width: "100%",
         height: theme.spacing.unit * 4.5,
         "&:after": {
             borderBottomColor: theme.palette.primary.contrastText,
             borderBottomWidth: "0.6px"
         },
-        padding: "7px"
+        padding: "7px",
+        [theme.breakpoints.down("xs")]:{
+            height: theme.spacing.unit * 3,
+            fontSize: "0.8rem",
+        }
     }
 });
 
@@ -129,7 +159,7 @@ class ChatRoomMessages extends Component {
                                 className={ classes.messageContainer }>
                                 <Avatar 
                                     src={ profile }
-                                    style={{ cursor: "pointer" }}/>
+                                    className={ classes.avatar }/>
                                 <div className={ classes.message }>
                                     <div>
                                         <Typography className={ classes.userName }> { name }</Typography>
