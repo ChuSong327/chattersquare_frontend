@@ -2,14 +2,7 @@ import React, { Component } from "react";
 import { withStyles } from "@material-ui/core/styles";
 import NavbarContainer from "../navbar/NavbarContainer";
 import SignUpFormContainer from "../signupform/SignUpFormContainer";
-
-const styles = theme => ({
-    layer1: {
-        minHeight: "100vh",
-        minWidth:"100vw",
-        background: "linear-gradient(to top right,  #5f2c82, #49a09d)"
-    }
-});
+import { styles } from "./style";
 
 class MainPage extends Component {
     render(){

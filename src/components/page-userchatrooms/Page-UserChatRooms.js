@@ -4,7 +4,7 @@ import DashboardContainer from "../dashboard/DashboardContainer";
 import { LinearProgress } from "@material-ui/core";
 
 class PageUserChatRooms extends Component {
-    componentDidMount(){
+    componentWillMount() {
         if(!localStorage.length) {
             this.props.history.push("/")
         } else {
@@ -13,7 +13,7 @@ class PageUserChatRooms extends Component {
             this.props.getRooms(params);
         }
     }
-    
+
     render(){
         if(!this.props.currentUser || !this.props.rooms) {
             return(

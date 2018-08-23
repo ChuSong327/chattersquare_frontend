@@ -3,7 +3,7 @@ import SideBarContainer from "../sidebar/SideBarContainer";
 import DirectMessagesContainer from "../directmessages/DirectMessagesContainer";
 
 class PageDirectMessages extends Component {
-    componentDidMount(){
+    componentWillMount(){
         if(!localStorage.length) {
             this.props.history.push("/")
         } else {

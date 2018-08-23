@@ -4,7 +4,7 @@ import ChatRoomNav from "../chatroomnav/ChatRoomNav";
 import { LinearProgress } from "@material-ui/core";
 
 class PageChatRoomMessages extends Component {
-    componentDidMount(){
+    componentWillMount(){
         if(!localStorage.length) {
             this.props.history.push("/")
         } else {

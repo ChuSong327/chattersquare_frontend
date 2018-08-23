@@ -4,7 +4,7 @@ import DashboardContainer from "../dashboard/DashboardContainer";
 import { LinearProgress } from "@material-ui/core";
 
 class PageUserSetting extends Component {
-    componentDidMount(){
+    componentWillMount(){
         if(!localStorage.length) {
             this.props.history.push("/")
         } else {

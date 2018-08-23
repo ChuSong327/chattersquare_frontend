@@ -3,7 +3,7 @@ import SideBarContainer from "../sidebar/SideBarContainer";
 import ChatRoomNav from "../chatroomnav/ChatRoomNav";
 
 class PageChatRoomUsers extends Component {
-    componentDidMount(){
+    componentWillMount(){
         if(!localStorage.length) {
             this.props.history.push("/")
         } else {
